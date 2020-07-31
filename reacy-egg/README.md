@@ -4,13 +4,27 @@
 ## QuickStart
 
 ### Mysql 
-1、启动
+1、新建mysql配置文件my.cnf放在/usr/local/docker/mysql/conf文件夹下
+```
+[client]
+default-character-set=utf8
+[mysql]
+default-character-set=utf8
+[mysqld]
+collation-server=utf8_general_ci
+character-set-server=utf8
+init-connect='SET NAMES utf8'
+```
+
+2、启动
+```
 docker run -p 3306:3306 -name mysql \
 -v /usr/local/docker/mysql/conf:/etc/mysql \
 -v /usr/local/docker/mysql/logs:/var/log/mysql \
 -v /usr/local/docker/mysql/data:/var/lib/mysql \
 -e MYSQL_ROOT_PASSWORD=123456 \
 -d mysql:5.7.31
+```
 
 2、新增迁移文件
 npx sequelize migration:generate --name='迁移文件名'
