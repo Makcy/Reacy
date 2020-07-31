@@ -30,6 +30,7 @@ docker run -p 3306:3306 -name mysql \
 npx sequelize migration:generate --name='迁移文件名'
 编辑database/migrations下的文件
 执行迁移 npx sequelize db:migrate
+执行迁移回滚 npx sequelize db:migrate:undo
 
 <!-- add docs here for user -->
 
