@@ -5,8 +5,8 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     const { INTEGER, STRING, DATE, NOW } = Sequelize;
     await queryInterface.createTable('sys_dept', {
-      dept_id: { type: INTEGER, primaryKey: true, autoIncrement: true, allowNull: false, comment: '部门id' },
-      parent_id: { type: INTEGER, defaultValue: 0, comment: '父部门id' },
+      dept_id: { type: INTEGER, primaryKey: true, autoIncrement: true, allowNull: false, comment: '部门ID' },
+      parent_id: { type: INTEGER, defaultValue: 0, comment: '父部门ID' },
       ancestors: { type: STRING(50), defaultValue: '', comment: '祖级列表' },
       dept_name: { type: STRING(30), defaultValue: '', comment: '部门名称' },
       order_num: { type: INTEGER, defaultValue: 0, comment: '显示顺序' },

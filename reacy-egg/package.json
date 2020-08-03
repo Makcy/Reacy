@@ -28,6 +28,12 @@
   "scripts": {
     "start": "egg-scripts start --daemon --title=egg-server-Reacy-backend",
     "stop": "egg-scripts stop --title=egg-server-Reacy-backend",
+    "migrate": "npx sequelize-cli db:migrate",
+    "migrate:new": "npx sequelize migration:generate",
+    "migrate:undo": "npx sequelize-cli db:migrate:undo",
+    "db:drop": "npx sequelize db:drop",
+    "db:create": "npx sequelize db:create",
+    "db:reset": "npx sequelize db:drop && npx sequelize db:create && npx sequelize-cli db:migrate",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",
