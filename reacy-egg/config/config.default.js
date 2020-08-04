@@ -26,9 +26,12 @@ module.exports = appInfo => {
   const sequelize = {
     dialect: 'mysql',
     host: '127.0.0.1',
-    port: 3306,
+    port: '3306',
     database: 'Reacy',
+    username: 'root',
+    password: '123456',
   };
+
 
   return {
     ...config,
