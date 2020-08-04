@@ -32,10 +32,20 @@ module.exports = appInfo => {
     password: '123456',
   };
 
+  const redis = {
+    client: {
+      port: 6379, // Redis port
+      host: '127.0.0.1', // Redis host
+      password: null,
+      db: 0,
+    },
+  };
+
 
   return {
     ...config,
     ...userConfig,
     sequelize,
+    redis,
   };
 };

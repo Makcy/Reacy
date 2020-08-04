@@ -19,11 +19,21 @@ init-connect='SET NAMES utf8'
 2、启动
 ```
 docker run -p 3306:3306 -name mysql \
--v /usr/local/docker/mysql/conf:/etc/mysql \
--v /usr/local/docker/mysql/logs:/var/log/mysql \
--v /usr/local/docker/mysql/data:/var/lib/mysql \
+-v ~/docker/mysql/conf:/etc/mysql \
+-v ~/docker/mysql/logs:/var/log/mysql \
+-v ~/docker/mysql/data:/var/lib/mysql \
 -e MYSQL_ROOT_PASSWORD=123456 \
 -d mysql:5.7.31
+```
+
+
+### Redis
+```
+docker run \
+-p 6379:6379 \
+-v ~/docker/redis/data:/data  \
+--name redis \
+-d redis:latest redis-server --appendonly yes
 ```
 
 2、新增迁移文件
