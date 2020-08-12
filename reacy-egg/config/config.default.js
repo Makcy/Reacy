@@ -41,11 +41,20 @@ module.exports = appInfo => {
     },
   };
 
+  const jwt = {
+    secret: '123456',
+  };
+
+  const security = {
+    csrf: false,
+  };
 
   return {
     ...config,
     ...userConfig,
     sequelize,
     redis,
+    jwt,
+    security,
   };
 };

@@ -18,7 +18,7 @@ init-connect='SET NAMES utf8'
 
 2、启动
 ```
-docker run -p 3306:3306 -name mysql \
+docker run -p 3306:3306 --name mysql \
 -v ~/docker/mysql/conf:/etc/mysql \
 -v ~/docker/mysql/logs:/var/log/mysql \
 -v ~/docker/mysql/data:/var/lib/mysql \
