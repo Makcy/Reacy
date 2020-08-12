@@ -99,8 +99,8 @@ export default {
   methods: {
     getCode() {
       getCodeImg().then(res => {
-        this.codeUrl = "data:image/gif;base64," + res.img;
-        this.loginForm.uuid = res.uuid;
+        this.codeUrl = "data:image/gif;base64," + res.buffer;
+        this.loginForm.token = res.token;
       });
     },
     getCookie() {
@@ -186,6 +186,7 @@ export default {
   img {
     cursor: pointer;
     vertical-align: middle;
+    border: 1px solid #dcdfe6;
   }
 }
 .el-login-footer {
