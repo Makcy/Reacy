@@ -9,7 +9,7 @@ module.exports = app => {
     BOOLEAN,
   } = app.Sequelize;
 
-  const User = app.model.define('sys_user', {
+  const User = app.model.define('sys_users', {
     id: {
       type: INTEGER,
       primaryKey: true,
@@ -25,15 +25,11 @@ module.exports = app => {
     },
     username: {
       type: STRING(30),
-      validate: {
-        notNull: true,
-      },
+      allowNull: false
     },
     nickname: {
       type: STRING(30),
-      validate: {
-        notNull: true,
-      },
+      allowNull: false
     },
     type: STRING(10), // TODO: 类型是否需要
     email: {
@@ -53,25 +49,28 @@ module.exports = app => {
     avatar: STRING(100),
     password: STRING(100),
     remark: STRING(500),
-    is_block: {
-      type: BOOLEAN,
-      defaultValue: false,
+    status: {
+      type: INTEGER,
+      defaultValue: 0,
     },
     create_by: {
+      type: INTEGER,
       references: {
-        model: 'sys_user',
+        model: 'sys_users',
         key: 'id',
       },
     },
     update_by: {
+      type: INTEGER,
       references: {
-        model: 'sys_user',
+        model: 'sys_users',
         key: 'id',
       },
     },
     delete_by: {
+      type: INTEGER,
       references: {
-        model: 'sys_user',
+        model: 'sys_users',
         key: 'id',
       },
     },

@@ -3,9 +3,9 @@
 const Service = require('egg').Service;
 
 class LoginService extends Service {
-  async getToken(userId) {
+  async getToken(user) {
     const { app } = this;
-    return app.jwt.sign({ name: 'makcy' }, app.config.jwt.secret);
+    return app.jwt.sign({ id: user.id, user: user.name }, app.config.jwt.secret);
   }
 }
 

@@ -2,8 +2,8 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const { INTEGER, STRING, DATE, NOW } = Sequelize;
-    await queryInterface.createTable('sys_user', {
+    const { INTEGER, STRING, DATE, NOW, BOOLEAN } = Sequelize;
+    await queryInterface.createTable('sys_users', {
       id: { type: INTEGER, primaryKey: true, autoIncrement: true, allowNull: false, comment: '用户ID' },
       dept_id: { type: INTEGER, defaultValue: null, comment: '部门ID' },
       username: { type: STRING(30), allowNull: false, comment: '用户账号' },
@@ -11,7 +11,7 @@ module.exports = {
       type: { type: STRING(10), defaultValue: 'sys', comment: '用户类型（sys）' },
       email: { type: STRING(30), defaultValue: '', comment: '用户昵称' },
       phone: { type: STRING(30), defaultValue: '', comment: '手机号码' },
-      sex: { type: INTEGER, defaultValue: 0, comment: '用户性别（0男 1女 2未知）' },
+      sex: { type: STRING(10), defaultValue: 'male', comment: '用户性别' },
       avatar: { type: STRING(100), defaultValue: '', comment: '头像地址' },
       password: { type: STRING(100), defaultValue: '', comment: '密码' },
       remark: { type: STRING(500), defaultValue: null, comment: '备注' },

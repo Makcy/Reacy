@@ -25,6 +25,11 @@ docker run -p 3306:3306 --name mysql \
 -e MYSQL_ROOT_PASSWORD=123456 \
 -d mysql:5.7.31
 ```
+```
+docker 内查看
+docker exec -it mysql bash
+mysql -u root -p123456
+```
 
 
 ### Redis
@@ -45,6 +50,10 @@ npx sequelize migration:generate --name='迁移文件名'
 <!-- add docs here for user -->
 
 see [egg docs][egg] for more detail.
+
+### Migration
+1、首次运行 npm run db:create reacy 创建数据库
+2、执行migrate: npm run migrate 
 
 ### Development
 

@@ -7,7 +7,7 @@ class UtilController extends Controller {
   async captchaImage() {
     const { ctx, app } = this;
     const { token, buffer } = await captcha({ size: 4 });
-    await app.redis.set(`verify_${token}`, token, 2000);
+    await app.redis.set(`verify_${token}`, token, 'ex', 200);
     ctx.body = { token, buffer: Buffer.from(buffer).toString('base64') };
   }
 }
