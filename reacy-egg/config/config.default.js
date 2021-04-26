@@ -49,6 +49,10 @@ module.exports = appInfo => {
     csrf: false,
   };
 
+  const logger = {
+    outputJSON: true,
+  };
+
   return {
     ...config,
     ...userConfig,
@@ -56,5 +60,7 @@ module.exports = appInfo => {
     redis,
     jwt,
     security,
+    logger,
+    middleware: ['errorHandler'],
   };
 };

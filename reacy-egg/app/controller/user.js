@@ -1,13 +1,10 @@
 'use strict';
 
-const Controller = require('egg').Controller;
+const Controller = require('../core/base_controller');
 
 class UserController extends Controller {
   async index() {
-    const { ctx } = this;
-    ctx.body = {
-      hello: 'world',
-    };
+    this.success()    
   }
 }
 
