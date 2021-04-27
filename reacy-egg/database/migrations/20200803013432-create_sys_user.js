@@ -3,11 +3,10 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const { INTEGER, STRING, DATE, NOW, BOOLEAN } = Sequelize;
-    await queryInterface.createTable('sys_users', {
+    await queryInterface.createTable('sys_user', {
       id: { type: INTEGER, primaryKey: true, autoIncrement: true, allowNull: false, comment: '用户ID' },
       dept_id: { type: INTEGER, defaultValue: null, comment: '部门ID' },
-      username: { type: STRING(30), allowNull: false, comment: '用户账号' },
-      nickname: { type: STRING(30), allowNull: false, comment: '用户昵称' },
+      name: { type: STRING(30), allowNull: false, unique: true, comment: '用户名' },
       type: { type: STRING(10), defaultValue: 'sys', comment: '用户类型（sys）' },
       email: { type: STRING(30), defaultValue: '', comment: '用户昵称' },
       phone: { type: STRING(30), defaultValue: '', comment: '手机号码' },
@@ -21,12 +20,13 @@ module.exports = {
       create_by: { type: INTEGER, defaultValue: null, comment: '创建者' },
       update_by: { type: INTEGER, defaultValue: null, comment: '更新者' },
       delete_by: { type: INTEGER, defaultValue: null, comment: '删除者' },
-      created_at: { type: DATE, defaultValue: NOW, allowNull: false, comment: '创建时间' },
-      updated_at: { type: DATE, defaultValue: NOW, allowNull: false, comment: '更新时间' },
+      created_at: { type: DATE, comment: '创建时间' },
+      updated_at: { type: DATE, comment: '更新时间' },
       deleted_at: { type: DATE, defaultValue: null, allowNull: true, comment: '删除时间' },
     }, {
       comment: '用户信息表',
     });
+    // await queryInterface.addIndex()
   },
 
   down: async queryInterface => {

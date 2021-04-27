@@ -13,7 +13,7 @@ class LoginController extends Controller {
     if (!verifyCode) {
       this.fail(ctx.ERROR_CODE, '验证码过期');
     }
-    const currentUser = await ctx.model.User.findOne({ where: { username, password } });
+    const currentUser = await ctx.model.SysUser.findOne({ where: { username, password } });
     if (!currentUser) {
       this.fail(ctx.ERROR_CODE, '账号或密码错误');
     }

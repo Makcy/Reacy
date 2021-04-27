@@ -30,6 +30,13 @@ module.exports = appInfo => {
     database: 'Reacy',
     username: 'root',
     password: '123456',
+    timezone: '+08:00',
+    define: {
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
+      underscored: true,
+      freezeTableName: true
+    }
   };
 
   const redis = {

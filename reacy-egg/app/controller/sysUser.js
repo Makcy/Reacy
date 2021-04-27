@@ -2,10 +2,10 @@
 
 const Controller = require('../core/base_controller');
 
-class UserController extends Controller {
+class SysUserController extends Controller {
   async index() {
     this.success()    
   }
 }
 
-module.exports = UserController;
+module.exports = SysUserController;

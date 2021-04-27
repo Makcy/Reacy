@@ -42,6 +42,8 @@
     "migrate": "npx sequelize-cli db:migrate",
     "migrate:new": "npx sequelize migration:generate",
     "migrate:undo": "npx sequelize-cli db:migrate:undo",
+    "seed": "npx sequelize db:seed:all",
+    "seed:undo": "npx sequelize db:seed:undo:all",
     "db:drop": "npx sequelize db:drop",
     "db:create": "npx sequelize db:create",
     "db:reset": "npx sequelize db:drop && npx sequelize db:create && npx sequelize-cli db:migrate"

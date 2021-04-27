@@ -7,5 +7,5 @@ module.exports = app => {
   const { router, controller } = app;
   router.get('/captchaImage', controller.util.captchaImage);
   router.post('/login', controller.login.index);
-  router.get('/user', app.jwt, controller.user.index);
+  router.get('/user', app.jwt, controller.sysUser.index);
 };
