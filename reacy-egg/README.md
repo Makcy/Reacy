@@ -54,6 +54,7 @@ see [egg docs][egg] for more detail.
 ### Migration
 1、首次运行 npm run db:create reacy 创建数据库
 2、执行migrate: npm run migrate 
+3、插入seed数据 npm run seed
 
 ### Development
 

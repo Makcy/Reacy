@@ -20,9 +20,9 @@ module.exports = {
       create_by: { type: INTEGER, defaultValue: null, comment: '创建者' },
       update_by: { type: INTEGER, defaultValue: null, comment: '更新者' },
       delete_by: { type: INTEGER, defaultValue: null, comment: '删除者' },
-      created_at: { type: DATE, comment: '创建时间' },
-      updated_at: { type: DATE, comment: '更新时间' },
-      deleted_at: { type: DATE, defaultValue: null, allowNull: true, comment: '删除时间' },
+      created_at: DATE,
+      updated_at: DATE,
+      deleted_at: DATE
     }, {
       comment: '用户信息表',
     });
