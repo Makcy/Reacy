@@ -4,7 +4,8 @@ const Controller = require('../core/base_controller');
 
 class SysUserController extends Controller {
   async index() {
-    this.success()    
+    const user = await this.ctx.service.sysUser.find(this.ctx.params.id);
+    this.success({ user });
   }
 }
 
