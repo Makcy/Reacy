@@ -9,7 +9,7 @@ module.exports = app => {
     BOOLEAN,
   } = app.Sequelize;
 
-  const User = app.model.define('sys_user', {
+  const User = app.model.define('user', {
     id: {
       type: INTEGER,
       primaryKey: true,
@@ -53,21 +53,21 @@ module.exports = app => {
     create_by: {
       type: INTEGER,
       references: {
-        model: 'sys_user',
+        model: 'user',
         key: 'id',
       },
     },
     update_by: {
       type: INTEGER,
       references: {
-        model: 'sys_user',
+        model: 'user',
         key: 'id',
       },
     },
     delete_by: {
       type: INTEGER,
       references: {
-        model: 'sys_user',
+        model: 'user',
         key: 'id',
       },
     },

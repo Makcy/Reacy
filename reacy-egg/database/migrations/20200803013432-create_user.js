@@ -3,7 +3,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const { INTEGER, STRING, DATE, NOW, BOOLEAN } = Sequelize;
-    await queryInterface.createTable('sys_user', {
+    await queryInterface.createTable('user', {
       id: { type: INTEGER, primaryKey: true, autoIncrement: true, allowNull: false, comment: '用户ID' },
       dept_id: { type: INTEGER, defaultValue: null, comment: '部门ID' },
       name: { type: STRING(30), allowNull: false, unique: true, comment: '用户名' },
@@ -30,6 +30,6 @@ module.exports = {
   },
 
   down: async queryInterface => {
-    await queryInterface.dropTable('sys_user');
+    await queryInterface.dropTable('user');
   },
 };

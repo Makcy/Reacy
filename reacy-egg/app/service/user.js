@@ -3,9 +3,9 @@
 const { Service } = require('egg');
 const crypto = require('crypto');
 
-class SysUser extends Service {
+class User extends Service {
   async list({ offset = 0, limit = 10 }) {
-    return this.ctx.model.SysUser.findAndCountAll({
+    return this.ctx.model.User.findAndCountAll({
       offset,
       limit,
       order: [[ 'created_at', 'desc' ], [ 'id', 'desc' ]],
@@ -14,7 +14,7 @@ class SysUser extends Service {
 
   async find(id) {
     const { ctx } = this;
-    const user = await this.ctx.model.SysUser.findByPk(id);
+    const user = await this.ctx.model.User.findByPk(id);
     if (!user) {
       ctx.throw(ctx.NOT_FOUND, 'user not found');
     }
@@ -22,12 +22,12 @@ class SysUser extends Service {
   }
 
   async create(user) {
-    return this.ctx.model.SysUser.create(user);
+    return this.ctx.model.User.create(user);
   }
 
   async update({ id, updates }) {
     const { ctx } = this;
-    const user = await this.ctx.model.SysUser.findByPk(id);
+    const user = await this.ctx.model.User.findByPk(id);
     if (!user) {
       ctx.throw(ctx.NOT_FOUND, 'user not found');
     }
@@ -48,4 +48,4 @@ class SysUser extends Service {
   }
 }
 
-module.exports = SysUser;
+module.exports = User;
