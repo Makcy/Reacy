@@ -1,0 +1,53 @@
+'use strict';
+
+module.exports = app => {
+  const { STRING, INTEGER, DATE } = app.Sequelize;
+
+  const Dept = app.model.define('dept', {
+    id: {
+      type: INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    parent_id: {
+      type: INTEGER,
+      defaultValue: null,
+      references: {
+        model: 'dept',
+        key: 'id',
+      },
+    },
+    name: STRING(30),
+    order_num: {
+      type: INTEGER,
+      defaultValue: 0
+    },
+    leader: STRING(20),
+    phone: STRING(11),
+    email: STRING(50),
+    status: {
+      type: INTEGER,
+      defaultValue: 1,
+    },
+    create_by: {
+      type: INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+    },
+    update_by: {
+      type: INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+    },
+    created_at: DATE,
+    updated_at: DATE,
+    deleted_at: DATE,
+  }, {
+    timestamps: true
+  })
+  return Dept;
+};

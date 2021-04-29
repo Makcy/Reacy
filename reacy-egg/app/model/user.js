@@ -4,9 +4,7 @@ module.exports = app => {
   const {
     STRING,
     INTEGER,
-    DATE,
-    NOW,
-    BOOLEAN,
+    DATE
   } = app.Sequelize;
 
   const User = app.model.define('user', {
@@ -19,7 +17,7 @@ module.exports = app => {
       type: INTEGER,
       defaultValue: null,
       references: {
-        model: 'sys_dept',
+        model: 'dept',
         key: 'id',
       },
     },
@@ -28,7 +26,6 @@ module.exports = app => {
       allowNull: false,
       unique: true
     },
-    type: STRING(10), // TODO: 类型是否需要
     email: {
       type: STRING(30),
       validate: {
@@ -48,7 +45,7 @@ module.exports = app => {
     remark: STRING(500),
     status: {
       type: INTEGER,
-      defaultValue: 0,
+      defaultValue: 1,
     },
     create_by: {
       type: INTEGER,

@@ -4,15 +4,16 @@
 ## QuickStart
 
 ### Mysql 
-1、新建mysql配置文件my.cnf放在/usr/local/docker/mysql/conf文件夹下
+1、新建mysql配置文件my.cnf放在~/docker/mysql/conf文件夹下
 ```
 [client]
-default-character-set=utf8
+default-character-set=utf8mb4
+max_allowed_packet=256M
 [mysql]
-default-character-set=utf8
+default-character-set=utf8mb4
 [mysqld]
-collation-server=utf8_general_ci
-character-set-server=utf8
+character-set-server=utf8mb4
+collation-server=utf8mb4_unicode_ci
 init-connect='SET NAMES utf8'
 ```
 
@@ -78,4 +79,8 @@ $ npm stop
 - Use `npm run autod` to auto detect dependencies upgrade, see [autod](https://www.npmjs.com/package/autod) for more detail.
 
 
-[egg]: https://eggjs.org
+### TODO 
+- dept model & user model associate with dept
+- more seeders
+- unit test
+- database add index in table
