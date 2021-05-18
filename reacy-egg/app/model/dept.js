@@ -32,7 +32,7 @@ module.exports = app => {
   });
 
   Dept.associate = () => {
-    app.model.Dept.hasMany(app.model.User, { foreignKey: 'dept_id' });
+    app.model.Dept.hasMany(app.model.User);
   };
 
   return Dept;

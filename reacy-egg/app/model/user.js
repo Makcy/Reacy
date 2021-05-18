@@ -13,13 +13,7 @@ module.exports = app => {
       primaryKey: true,
       autoIncrement: true,
     },
-    dept_id: {
-      type: INTEGER,
-      references: {
-        model: 'dept',
-        key: 'id',
-      },
-    },
+    dept_id: INTEGER,
     name: {
       type: STRING(30),
       allowNull: false,
@@ -83,9 +77,9 @@ module.exports = app => {
     ],
   });
 
-  // User.associate = () => {
-  //   app.model.User.belongsTo(app.model.Dept, { as: 'dept', foreignKey: 'dept_id' });
-  // };
+  User.associate = () => {
+    app.model.User.belongsTo(app.model.Dept, { as: 'dept', foreignKey: 'dept_id' });
+  };
 
   return User;
 };
