@@ -33,6 +33,7 @@ module.exports = app => {
 
   Dept.associate = () => {
     app.model.Dept.hasMany(app.model.User);
+    app.model.Dept.hasMany(app.model.Dept, { foreignKey: 'parent_id', as: 'children' });
   };
 
   return Dept;

@@ -6,7 +6,7 @@ module.exports = {
     const { INTEGER, STRING, DATE } = Sequelize;
     await queryInterface.createTable('dept', {
       id: { type: INTEGER, primaryKey: true, autoIncrement: true, allowNull: false, comment: '部门ID' },
-      parent_id: { type: INTEGER, defaultValue: 0, comment: '父部门ID' },
+      parent_id: { type: INTEGER, defaultValue: null, comment: '父部门ID' },
       name: { type: STRING(30), defaultValue: '', comment: '部门名称' },
       order_num: { type: INTEGER, defaultValue: 0, comment: '显示顺序' },
       leader: { type: STRING(20), defaultValue: null, comment: '负责人' },
@@ -17,7 +17,7 @@ module.exports = {
       update_by: { type: STRING(64), defaultValue: null, comment: '更新者' },
       created_at: DATE,
       updated_at: DATE,
-      deleted_at: DATE
+      deleted_at: DATE,
     }, { comment: '部门表' });
   },
 
