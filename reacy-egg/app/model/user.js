@@ -4,7 +4,7 @@ module.exports = app => {
   const {
     STRING,
     INTEGER,
-    DATE
+    DATE,
   } = app.Sequelize;
 
   const User = app.model.define('user', {
@@ -15,7 +15,6 @@ module.exports = app => {
     },
     dept_id: {
       type: INTEGER,
-      defaultValue: null,
       references: {
         model: 'dept',
         key: 'id',
@@ -24,7 +23,7 @@ module.exports = app => {
     name: {
       type: STRING(30),
       allowNull: false,
-      unique: true
+      unique: true,
     },
     email: {
       type: STRING(30),
@@ -73,7 +72,20 @@ module.exports = app => {
     updated_at: DATE,
     deleted_at: DATE,
   }, {
-    timestamps: true
+    timestamps: true,
+  }, {
+    indexes: [
+      {
+        name: 'dept_id_index',
+        using: 'BTREE',
+        fields: [ 'dept_id' ],
+      },
+    ],
   });
+
+  // User.associate = () => {
+  //   app.model.User.belongsTo(app.model.Dept, { as: 'dept', foreignKey: 'dept_id' });
+  // };
+
   return User;
 };

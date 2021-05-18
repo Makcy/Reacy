@@ -14,7 +14,9 @@ class User extends Service {
 
   async find(id) {
     const { ctx } = this;
-    const user = await this.ctx.model.User.findByPk(id);
+    const user = await this.ctx.model.User.findByPk(id, {
+      include: 'dept',
+    });
     if (!user) {
       ctx.throw(ctx.NOT_FOUND, 'user not found');
     }

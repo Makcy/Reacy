@@ -9,18 +9,11 @@ module.exports = app => {
       primaryKey: true,
       autoIncrement: true,
     },
-    parent_id: {
-      type: INTEGER,
-      defaultValue: null,
-      references: {
-        model: 'dept',
-        key: 'id',
-      },
-    },
+    parent_id: INTEGER,
     name: STRING(30),
     order_num: {
       type: INTEGER,
-      defaultValue: 0
+      defaultValue: 0,
     },
     leader: STRING(20),
     phone: STRING(11),
@@ -29,25 +22,18 @@ module.exports = app => {
       type: INTEGER,
       defaultValue: 1,
     },
-    create_by: {
-      type: INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
-    },
-    update_by: {
-      type: INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
-    },
+    create_by: INTEGER,
+    update_by: INTEGER,
     created_at: DATE,
     updated_at: DATE,
     deleted_at: DATE,
   }, {
-    timestamps: true
-  })
+    timestamps: true,
+  });
+
+  Dept.associate = () => {
+    app.model.Dept.hasMany(app.model.User, { foreignKey: 'dept_id' });
+  };
+
   return Dept;
 };
