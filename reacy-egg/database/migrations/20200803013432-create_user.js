@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const { INTEGER, STRING, DATE, NOW, BOOLEAN } = Sequelize;
+    const { INTEGER, STRING, DATE } = Sequelize;
     await queryInterface.createTable('user', {
       id: { type: INTEGER, primaryKey: true, autoIncrement: true, allowNull: false, comment: '用户ID' },
       dept_id: { type: INTEGER, defaultValue: null, comment: '部门ID' },
@@ -21,7 +21,7 @@ module.exports = {
       delete_by: { type: INTEGER, defaultValue: null, comment: '删除者' },
       created_at: DATE,
       updated_at: DATE,
-      deleted_at: DATE
+      deleted_at: DATE,
     }, {
       comment: '用户信息表',
     });

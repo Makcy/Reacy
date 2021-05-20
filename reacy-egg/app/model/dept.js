@@ -9,7 +9,10 @@ module.exports = app => {
       primaryKey: true,
       autoIncrement: true,
     },
-    parent_id: INTEGER,
+    parent_id: {
+      type: INTEGER,
+      defaultValue: null,
+    },
     name: STRING(30),
     order_num: {
       type: INTEGER,
